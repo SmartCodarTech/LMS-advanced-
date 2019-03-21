@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Course
+        Department
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Students</li>
-        <li class="active">Course</li>
+        <li>Lecturer</li>
+        <li class="active">Department</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -52,19 +52,19 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Code</th>
-                  <th>Course Title</th>
+                  <th>Department</th>
+                  <th>ID NO</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT * FROM course";
+                    $sql = "SELECT * FROM department";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
-                          <td>".$row['code']."</td>
-                          <td>".$row['title']."</td>
+                          <td>".$row['name']."</td>
+                          <td>".$row['department_number']."</td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
@@ -83,7 +83,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/course_modal.php'; ?>
+  <?php include 'includes/department_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -106,13 +106,13 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'course_row.php',
+    url: 'department_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
       $('.corid').val(response.id);
-      $('#edit_code').val(response.code);
-      $('#edit_title').val(response.title);
+      $('#edit_name').val(response.name);
+      $('#edit_department_number').val(response.department_number);
       $('#del_code').html(response.code);
     }
   });

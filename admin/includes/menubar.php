@@ -65,7 +65,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="lecturer.php"><i class="fa fa-circle-o"></i> Lecturers List</a></li>
-          <li><a href="program.php"><i class="fa fa-circle-o"></i> Programs</a></li>
+          <li><a href="specialization.php"><i class="fa fa-circle-o"></i> Programs</a></li>
           <li><a href="department.php"><i class="fa fa-circle-o"></i>Department</a></li>
         </ul>
       </li>

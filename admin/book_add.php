@@ -11,7 +11,7 @@
 		$filename = $_FILES['photo']['name'];
 
 		if(!empty($filename)){
-				move_uploaded_file($_FILES['photo']['tmp_name'], '../img/'.$filename);
+				move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);
 			
 		}
 

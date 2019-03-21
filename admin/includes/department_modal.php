@@ -5,22 +5,22 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Add New Course</b></h4>
+              <h4 class="modal-title"><b>Add New Department</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="course_add.php">
+              <form class="form-horizontal" method="POST" action="department_add.php">
                 <div class="form-group">
-                    <label for="code" class="col-sm-3 control-label">Code</label>
+                    <label for="code" class="col-sm-3 control-label">Department</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="code" name="code" required>
+                      <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="title" class="col-sm-3 control-label">Title</label>
+                    <label for="title" class="col-sm-3 control-label">Department No</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="title" name="title" required>
+                      <input type="text" class="form-control" id="department_number" name="department_number" equired>
                     </div>
                 </div>
             </div>
@@ -40,23 +40,23 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit Course</b></h4>
+              <h4 class="modal-title"><b>Edit Department </b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="course_edit.php">
+              <form class="form-horizontal" method="POST" action="department_edit.php">
                 <input type="hidden" class="corid" name="id">
                 <div class="form-group">
-                    <label for="edit_code" class="col-sm-3 control-label">Code</label>
+                    <label for="edit_code" class="col-sm-3 control-label">Name</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_code" name="code">
+                      <input type="text" class="form-control" id="edit_code" name="name">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_title" class="col-sm-3 control-label">Title</label>
+                    <label for="edit_title" class="col-sm-3 control-label">Department no </label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_title" name="title">
+                      <input type="text" class="form-control" id="edit_title" name="department_number">
                     </div>
                 </div>
             </div>
@@ -79,10 +79,10 @@
               <h4 class="modal-title"><b>Deleting...</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="course_delete.php">
+              <form class="form-horizontal" method="POST" action="department_delete.php">
                 <input type="hidden" class="corid" name="id">
                 <div class="text-center">
-                    <p>DELETE BOOK</p>
+                    <p>DELETE Department</p>
                     <h2 id="del_code" class="bold"></h2>
                 </div>
             </div>

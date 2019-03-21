@@ -24,6 +24,20 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">Email</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">Phone Number</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="phone_number" name="phone_number" required>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="course" class="col-sm-3 control-label">Specialisation</label>
 
                     <div class="col-sm-9">
@@ -34,7 +48,7 @@
                           $query = $conn->query($sql);
                           while($row = $query->fetch_array()){
                             echo "
-                              <option value='".$row['id']."'>".$row['code']."</option>
+                              <option value='".$row['program']."'>".$row['program']."</option>
                             ";
                           }
                         ?>
@@ -46,14 +60,14 @@
                     <label for="course" class="col-sm-3 control-label">Department</label>
 
                     <div class="col-sm-9">
-                      <select class="form-control" id="course" name="course" required>
+                      <select class="form-control" id="department" name="department" required>
                         <option value="" selected>- Select -</option>
                         <?php
                           $sql = "SELECT * FROM department";
                           $query = $conn->query($sql);
                           while($row = $query->fetch_array()){
                             echo "
-                              <option value='".$row['id']."'>".$row['code']."</option>
+                              <option value='".$row['name']."'>".$row['name']."</option>
                             ";
                           }
                         ?>

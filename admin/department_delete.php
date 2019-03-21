@@ -3,9 +3,9 @@
 
 	if(isset($_POST['delete'])){
 		$id = $_POST['id'];
-		$sql = "DELETE FROM course WHERE id = '$id'";
+		$sql = "DELETE FROM Department WHERE id = '$id'";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Course deleted successfully';
+			$_SESSION['success'] = 'Department deleted successfully';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;
@@ -15,6 +15,6 @@
 		$_SESSION['error'] = 'Select item to delete first';
 	}
 
-	header('location: course.php');
+	header('location: Department.php');
 	
 ?>

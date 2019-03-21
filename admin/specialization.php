@@ -11,12 +11,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Course
+        Programs
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li>Students</li>
-        <li class="active">Course</li>
+        <li>Program</li>
+        <li class="active">Lecturer Programs</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -52,19 +52,21 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Code</th>
-                  <th>Course Title</th>
+                  <th>ID No</th>
+                  <th>Program name</th>
+                  <th>Course Code</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT * FROM course";
+                    $sql = "SELECT * FROM specialization";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
                         <tr>
-                          <td>".$row['code']."</td>
-                          <td>".$row['title']."</td>
+                          <td>".$row['id']."</td>
+                          <td>".$row['program']."</td>
+                          <td>".$row['course_code']."</td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
@@ -83,7 +85,7 @@
   </div>
     
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/course_modal.php'; ?>
+  <?php include 'includes/specialization_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -106,13 +108,13 @@ $(function(){
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'course_row.php',
+    url: 'specialization_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
       $('.corid').val(response.id);
-      $('#edit_code').val(response.code);
-      $('#edit_title').val(response.title);
+      $('#edit_program').val(response.program);
+      $('#edit_course_code').val(response.course_code);
       $('#del_code').html(response.code);
     }
   });

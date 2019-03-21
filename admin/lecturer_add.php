@@ -4,7 +4,10 @@
 	if(isset($_POST['submit'])){
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
-		$course = $_POST['course'];
+		$email = $_POST['email'];
+		$phone_number = $_POST['phone_number'];
+		$specialization = $_POST['specialization'];
+		$department = $_POST['department'];
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
 			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
@@ -20,7 +23,7 @@
 		}
 		$lecturer_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		//
-		$sql = "INSERT INTO lecturer (lecturer_id, firstname, lastname, program_id, photo, created_on) VALUES ('$lecturer_id', '$firstname', '$lastname', '$course', '$filename', NOW())";
+		$sql = "INSERT INTO lecturer (lecturer_id, firstname, lastname, email, phone_number,specialization,department,  photo, created_on) VALUES ('$lecturer_id', '$firstname', '$lastname', '$email','$phone_number','$department','$specialization', '$filename', NOW())";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Lectuerer added successfully';
 		}

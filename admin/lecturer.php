@@ -52,22 +52,26 @@
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Course</th>
+                  
                   <th>Photo</th>
                   <th>Lecturer ID</th>
                   <th>Firstname</th>
                   <th>Lastname</th>
+                  <th>Department</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Field</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, lecturer.id AS lecid FROM lecturer LEFT JOIN program ON program.id=lecturer.program_id";
+                    $sql = "SELECT *, lecturer.id AS lecid FROM lecturer LEFT JOIN specialization ON specialization.id=lecturer.lecturer_id";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       $photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
                       echo "
                         <tr>
-                          <td>".$row['code']."</td>
+                          
                           <td>
                             <img src='".$photo."' width='30px' height='30px'>
                             <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['lecid']."'><span class='fa fa-edit'></span></a>
@@ -75,9 +79,13 @@
                           <td>".$row['lecturer_id']."</td>
                           <td>".$row['firstname']."</td>
                           <td>".$row['lastname']."</td>
+                          <td>".$row['department']."</td>
+                          <td>".$row['email']."</td>
+                          <td>".$row['phone_number']."</td>
+                          <td>".$row['specialization']."</td>
                           <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['lecid']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['lecid']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['lecid']."'><i class='fa fa-edit'></i></button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['lecid']."'><i class='fa fa-trash'></i></button>
                           </td>
                         </tr>
                       ";
