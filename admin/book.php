@@ -102,7 +102,7 @@
                       else{
                         $status = '<span class="label label-success">available</span>';
                       }
-                       $photo = (!empty($row['images'])) ? '../img/'.$row['images'] : '../img/profile.jpeg';
+                       $photo = (!empty($row['images'])) ? '../images/'.$row['images'] : '../images/profile.jpeg';
                       echo "
                         <tr>
                         <td>
