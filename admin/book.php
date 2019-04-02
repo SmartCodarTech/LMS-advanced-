@@ -102,7 +102,7 @@
                       else{
                         $status = '<span class="label label-success">available</span>';
                       }
-                       $photo = (!empty($row['images'])) ? '../images/'.$row['images'] : '../images/profile.jpeg';
+                       $photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpeg';
                       echo "
                         <tr>
                         <td>
@@ -162,6 +162,12 @@ $(function(){
     var id = $(this).data('id');
     getRow(id);
   });
+   $(document).on('click', '.photo', function(e){
+    e.preventDefault();
+    var id = $(this).data('id');
+    getRow(id);
+  });
+
 });
 
 function getRow(id){

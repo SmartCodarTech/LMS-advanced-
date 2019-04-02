@@ -24,6 +24,19 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="course" class="col-sm-3 control-label">Gender</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="course" name="gender" required>
+                        <option value="" selected>- Select -</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        
+                      </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="course" class="col-sm-3 control-label">Course</label>
 
                     <div class="col-sm-9">
