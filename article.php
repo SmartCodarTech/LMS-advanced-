@@ -31,30 +31,17 @@
 	        		?>
 	        		<div class="box">
 	        			<div class="box-header with-border">
+                         <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+	        			<!--div class="box-header with-border">
 	        				<div class="input-group">
 				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for ISBN, Title or Author">
 				                <span class="input-group-btn">
 				                    <button type="button" class="btn btn-primary btn-flat btn-lg"><i class="fa fa-search"></i> </button>
 				                </span>
 				            </div>
-	        			</div>
+	        			</div-->
 	        			<div class="box-body">
-	        				<div class="input-group col-sm-5">
-				                <span class="input-group-addon">Category:</span>
-				                <select class="form-control" id="catlist">
-				                	<option value=0>ALL</option>
-				                	<?php
-				                		$sql = "SELECT * FROM category";
-				                		$query = $conn->query($sql);
-				                		while($catrow = $query->fetch_assoc()){
-				                			$selected = ($catid == $catrow['id']) ? " selected" : "";
-				                			echo "
-				                				<option value='".$catrow['id']."' ".$selected.">".$catrow['name']."</option>
-				                			";
-				                		}
-				                	?>
-				                </select>
-				             </div>
+	        				
 	        				<table class="table table-bordered table-striped" id="booklist">
 			        			<thead>
 
@@ -101,6 +88,7 @@
 	  </div>
   
   	<?php include 'includes/footer.php'; ?>
+  	<?php include 'includes/article_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>

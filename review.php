@@ -32,7 +32,7 @@
 	        		<div class="box">
 	        			<div class="box-header with-border">
 	        				<div class="input-group">
-				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for ISBN, Title or Author">
+				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for articles">
 				                <span class="input-group-btn">
 				                    <button type="button" class="btn btn-primary btn-flat btn-lg"><i class="fa fa-search"></i> </button>
 				                </span>

@@ -14,8 +14,12 @@
           <?php
             if(isset($_SESSION['student'])){
               echo "
-                <li><a href='index.php'>HOME</a></li>
-                <li><a href='transaction.php'>TRANSACTION</a></li>
+                <li><a href='index.php'>Hom</a></li>
+                <li><a href='article.php'>Add Article</a></li>
+                <li><a href='review.php'>Review Articles</a></li>
+
+
+                <li><a href='transaction.php'>Transaction</a></li>
               ";
             } 
           ?>
