@@ -45,10 +45,11 @@
 	        				<table class="table table-bordered table-striped" id="booklist">
 			        			<thead>
 
-			        				<th>Images</th>
-			        				<th>ISBN</th>
+			        				<th>File</th>
 			        				<th>Title</th>
-			        				<th>Author</th>
+			        				<th>Category</th>
+			        				<th>Publisher</th>
+			        				<th>Date</th>
 			        				<th>Status</th>
 			        			</thead>
 			        			<tbody>
@@ -104,6 +105,22 @@ $(function(){
 		
 	});
 });
+function getRow(id){
+  $.ajax({
+    type: 'POST',
+    url: 'articule_row.php',
+    data: {id:id},
+    dataType: 'json',
+    success: function(response){
+      $('.articleid').val(response.articleid);
+      $('#edit_title').val(response.title);
+      $('#catselect').val(response.category_id).html(response.name);
+      $('#edit_author').val(response.author);
+      $('#edit_publisher').val(response.publisher);
+      $('#datepicker_edit').val(response.publish_date);
+      $('#del_book').html(response.title);
+    }
+  });
 </script>
 </body>
 </html>

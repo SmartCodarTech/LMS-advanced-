@@ -6,6 +6,8 @@
 		$lastname = $_POST['lastname'];
 		$gender =$_POST['gender'];
 		$course = $_POST['course'];
+		$role = $_POST['role'];
+
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
 			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
@@ -21,9 +23,9 @@
 		}
 		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		//
-		$sql = "INSERT INTO students (student_id, firstname, lastname,gender, course_id, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender', '$course', '$filename', NOW())";
+		$sql = "INSERT INTO students (student_id, firstname, lastname,gender, course_id, role, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender', '$course','$role', '$filename', NOW())";
 		if($conn->query($sql)){
-			$_SESSION['success'] = 'Student added successfully';
+			$_SESSION['success'] = 'User added successfully';
 		}
 		else{
 			$_SESSION['error'] = $conn->error;

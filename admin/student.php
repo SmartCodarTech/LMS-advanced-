@@ -58,6 +58,7 @@
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>Gender</th>
+                  <th>Permissions</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
@@ -77,6 +78,7 @@
                           <td>".$row['firstname']."</td>
                           <td>".$row['lastname']."</td>
                           <td>".$row['gender']."</td>
+                          <td>".$row['role']."</td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['studid']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['studid']."'><i class='fa fa-trash'></i> Delete</button>

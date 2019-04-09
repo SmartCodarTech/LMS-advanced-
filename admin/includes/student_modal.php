@@ -5,7 +5,7 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Add New Student</b></h4>
+              <h4 class="modal-title"><b>Add New User</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="student_add.php">
@@ -51,6 +51,18 @@
                             ";
                           }
                         ?>
+                      </select>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="course" class="col-sm-3 control-label">Permissions</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="course" name="role" required>
+                        <option value="" selected>- Select -</option>
+                        <option value="lecturer">Lecturer</option>
+                        <option value="student">Student</option>
+                        
                       </select>
                     </div>
                 </div>

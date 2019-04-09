@@ -2,7 +2,7 @@
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="#" class="navbar-brand"><b>Library</b> System</a>
+        <a href="#" class="navbar-brand"><b>WIUC</b>LMS</a>
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
@@ -14,7 +14,7 @@
           <?php
             if(isset($_SESSION['student'])){
               echo "
-                <li><a href='index.php'>Hom</a></li>
+                <li><a href='index.php'>Home</a></li>
                 <li><a href='article.php'>Add Article</a></li>
                 <li><a href='review.php'>Review Articles</a></li>
 

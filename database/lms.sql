@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2019 at 04:57 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Apr 07, 2019 at 08:01 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -315,6 +315,7 @@ CREATE TABLE `students` (
   `gender` varchar(255) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `course_id` int(11) NOT NULL,
+  `role` varchar(255) NOT NULL,
   `created_on` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -322,9 +323,10 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `photo`, `course_id`, `created_on`) VALUES
-(1, 'MPW438617905', 'Wisdom', 'Kukah', 'Male', '38532457_151080585778355_2234909953577975808_n.jpg', 3, '2019-04-02'),
-(2, 'XUP205748316', 'Joseph ', 'Amarh', 'Male', 'se.jpg', 6, '2019-04-05');
+INSERT INTO `students` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `photo`, `course_id`, `role`, `created_on`) VALUES
+(0, 'PKY456891207', 'Farida', 'Ali', 'Female', '', 6, 'lecturer', '2019-04-07'),
+(1, 'MPW438617905', 'Wisdom', 'Kukah', 'Male', '38532457_151080585778355_2234909953577975808_n.jpg', 3, '', '2019-04-02'),
+(2, 'XUP205748316', 'Joseph ', 'Amarh', 'Male', 'se.jpg', 6, '', '2019-04-05');
 
 --
 -- Indexes for dumped tables
@@ -422,7 +424,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `books`
@@ -434,7 +436,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

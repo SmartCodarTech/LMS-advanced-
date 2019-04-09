@@ -10,7 +10,7 @@
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="login.php">
                 <div class="form-group">
-                    <label for="student" class="col-sm-3 control-label">Student ID</label>
+                    <label for="student" class="col-sm-3 control-label">User ID</label>
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="student" name="student" required>

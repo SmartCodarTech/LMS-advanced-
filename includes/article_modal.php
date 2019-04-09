@@ -5,24 +5,18 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>Add New Book</b></h4>
+            	<h4 class="modal-title"><b>Add New Article </b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="book_add.php">
+            	<form class="form-horizontal" method="POST" action="article_add.php">
           		  <div class="form-group">
-                  	<label for="isbn" class="col-sm-3 control-label">ISBN</label>
+                  	<label for="isbn" class="col-sm-3 control-label">Title</label>
 
                   	<div class="col-sm-9">
-                    	<input type="text" class="form-control" id="isbn" name="isbn" required>
+                    	<input type="text" class="form-control" id="title" name="title" required>
                   	</div>
                 </div>
-                <div class="form-group">
-                    <label for="title" class="col-sm-3 control-label">Title</label>
-
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="title" id="title" required></textarea>
-                    </div>
-                </div>
+               
                 <div class="form-group">
                     <label for="category" class="col-sm-3 control-label">Category</label>
 
@@ -60,12 +54,12 @@
 
                     <div class="col-sm-9">
                       <div class="date">
-                        <input type="text" class="form-control" id="datepicker_add" name="pub_date">
+                        <input type="date" class="form-control" id="date" name="pub_date">
                       </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="photo" class="col-sm-3 control-label">Images</label>
+                    <label for="photo" class="col-sm-3 control-label">Upload File</label>
 
                     <div class="col-sm-9">
                       <input type="file" id="file" name="file">

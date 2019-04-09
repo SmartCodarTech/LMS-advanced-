@@ -30,3 +30,14 @@
 
   })
 </script>
+<script>
+  //Date picker
+  $('#datepicker_add').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  })
+  $('#datepicker_edit').datepicker({
+    autoclose: true,
+    format: 'yyyy-mm-dd'
+  }) 
+</script>
