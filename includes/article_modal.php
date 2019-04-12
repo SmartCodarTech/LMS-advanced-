@@ -8,7 +8,7 @@
             	<h4 class="modal-title"><b>Add New Article </b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="article_add.php">
+            	<form class="form-horizontal" method="POST" action="article_add.php" enctype="multipart/form-data">
           		  <div class="form-group">
                   	<label for="isbn" class="col-sm-3 control-label">Title</label>
 
@@ -21,7 +21,7 @@
                     <label for="category" class="col-sm-3 control-label">Category</label>
 
                     <div class="col-sm-9">
-                      <select class="form-control" name="category" id="category" required>
+                      <select class="form-control" name="category_id" id="category_id" required>
                         <option value="" selected>- Select -</option>
                         <?php
                           $sql = "SELECT * FROM category";
@@ -54,7 +54,7 @@
 
                     <div class="col-sm-9">
                       <div class="date">
-                        <input type="date" class="form-control" id="date" name="pub_date">
+                        <input type="date" class="form-control" id="date" name="publish_date">
                       </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                     <label for="photo" class="col-sm-3 control-label">Upload File</label>
 
                     <div class="col-sm-9">
-                      <input type="file" id="file" name="file">
+                      <input type="file" id="file" name="upload_file">
                     </div>
                 </div>
                  

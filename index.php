@@ -71,11 +71,11 @@
 			        				while($row = $query->fetch_assoc()){
 			        					$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
 
-			        					$photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpeg';
+			        					$photo = (!empty($row['image'])) ? 'images/'.$row['image'] : 'images/profile.jpeg';
                                          echo "
                                          <tr>
                                          <td>
-                                         <img src='".$photo."' width='30px' height='30px'>
+                                         <img src='".$photo."' width='40px' height='60px'>
                                         
                                         </td>
 			        					

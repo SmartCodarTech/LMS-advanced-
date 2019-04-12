@@ -102,11 +102,13 @@
                       else{
                         $status = '<span class="label label-success">available</span>';
                       }
-                       $photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpeg';
+                       $photo = (!empty($row['image'])) ? '../images/'.$row['image'] : '../images/profile.jpeg';
                       echo "
                         <tr>
                         <td>
-                        <img src='".$photo."' width='30px' height='30px'>
+                        <img src='".$photo."' width='40px' height='60px'>
+
+
                         <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['bookid']."'><span class='fa fa-edit'></span></a>
                           </td>
                           

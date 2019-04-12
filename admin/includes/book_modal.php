@@ -8,7 +8,7 @@
             	<h4 class="modal-title"><b>Add New Book</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="book_add.php">
+            	<form class="form-horizontal" method="POST" action="book_add.php" enctype="multipart/form-data">
           		  <div class="form-group">
                   	<label for="isbn" class="col-sm-3 control-label">ISBN</label>
 
@@ -65,10 +65,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="photo" class="col-sm-3 control-label">Images</label>
+                    <label for="image" class="col-sm-3 control-label">Images</label>
 
                     <div class="col-sm-9">
-                      <input type="file" id="file" name="file">
+                      <input type="file" id="file" name="image">
                     </div>
                 </div>
                  

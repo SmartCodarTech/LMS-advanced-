@@ -48,31 +48,38 @@
 			        				<th>File</th>
 			        				<th>Title</th>
 			        				<th>Category</th>
+			        				<th>Author</th>
 			        				<th>Publisher</th>
 			        				<th>Date</th>
-			        				<th>Status</th>
+			        				<th>Tools</th>
 			        			</thead>
 			        			<tbody>
 			        			<?php
-			        				 $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id $where";
+			        				 $sql = "SELECT *, article.id AS articleid FROM article LEFT JOIN category ON category.id=article.category_id $where";
 			        				$query = $conn->query($sql);
 			        				while($row = $query->fetch_assoc()){
-			        					$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
+			        					//$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
 
-			        					$photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpeg';
+			        					$file = (!empty($row['upload_file'])) ? 'file/'.$row['upload_file'] : 'file/profile.jpeg';
                                          echo "
                                          <tr>
                                          <td>
-                                         <img src='".$photo."' width='30px' height='30px'>
+                                         <img src='".$file."' width='30px' height='50px'>
                                         
                                         </td>
 			        					
 
 			        							
-			        							<td>".$row['isbn']."</td>
 			        							<td>".$row['title']."</td>
+			        							<td>".$row['name']."</td>
 			        							<td>".$row['author']."</td>
-			        							<td>".$status."</td>
+			        							<td>".$row['publisher']."</td>
+			        							<td>".$row['publish_date']."</td>
+			        							<td>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['articleid']."'><i class='fa fa-edit'></i> </button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['articleid']."'><i class='fa fa-trash'></i> </button>
+                          </td>
+			        							
 			        						</tr>
 			        					";
 			        				}

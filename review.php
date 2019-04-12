@@ -30,6 +30,8 @@
 	        			}
 	        		?>
 	        		<div class="box">
+	        			<!--div class="box-header with-border">
+                         <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a-->
 	        			<div class="box-header with-border">
 	        				<div class="input-group">
 				                <input type="text" class="form-control input-lg" id="searchBox" placeholder="Search for articles">
@@ -39,52 +41,45 @@
 				            </div>
 	        			</div>
 	        			<div class="box-body">
-	        				<div class="input-group col-sm-5">
-				                <span class="input-group-addon">Category:</span>
-				                <select class="form-control" id="catlist">
-				                	<option value=0>ALL</option>
-				                	<?php
-				                		$sql = "SELECT * FROM category";
-				                		$query = $conn->query($sql);
-				                		while($catrow = $query->fetch_assoc()){
-				                			$selected = ($catid == $catrow['id']) ? " selected" : "";
-				                			echo "
-				                				<option value='".$catrow['id']."' ".$selected.">".$catrow['name']."</option>
-				                			";
-				                		}
-				                	?>
-				                </select>
-				             </div>
+	        				
 	        				<table class="table table-bordered table-striped" id="booklist">
 			        			<thead>
 
-			        				<th>Images</th>
-			        				<th>ISBN</th>
+			        				<th>File</th>
 			        				<th>Title</th>
+			        				<th>Category</th>
 			        				<th>Author</th>
-			        				<th>Status</th>
+			        				<th>Publisher</th>
+			        				<th>Date</th>
+			        				<th>Tools</th>
 			        			</thead>
 			        			<tbody>
 			        			<?php
-			        				 $sql = "SELECT *, books.id AS bookid FROM books LEFT JOIN category ON category.id=books.category_id $where";
+			        				 $sql = "SELECT *, article.id AS articleid FROM article LEFT JOIN category ON category.id=article.category_id $where";
 			        				$query = $conn->query($sql);
 			        				while($row = $query->fetch_assoc()){
-			        					$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
+			        					//$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
 
-			        					$photo = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpeg';
+			        					$file = (!empty($row['upload_file'])) ? 'file/'.$row['upload_file'] : 'file/profile.jpeg';
                                          echo "
                                          <tr>
                                          <td>
-                                         <img src='".$photo."' width='30px' height='30px'>
+                                         <img src='".$file."' width='30px' height='50px'>
                                         
                                         </td>
 			        					
 
 			        							
-			        							<td>".$row['isbn']."</td>
 			        							<td>".$row['title']."</td>
+			        							<td>".$row['name']."</td>
 			        							<td>".$row['author']."</td>
-			        							<td>".$status."</td>
+			        							<td>".$row['publisher']."</td>
+			        							<td>".$row['publish_date']."</td>
+			        							<td>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['articleid']."'><i class='fa fa-download'></i> </button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['articleid']."'><i class='fa fa-book'></i> </button>
+                          </td>
+			        							
 			        						</tr>
 			        					";
 			        				}
@@ -101,6 +96,7 @@
 	  </div>
   
   	<?php include 'includes/footer.php'; ?>
+  	<?php include 'includes/article_modal.php'; ?>
 </div>
 
 <?php include 'includes/scripts.php'; ?>
@@ -116,6 +112,22 @@ $(function(){
 		
 	});
 });
+function getRow(id){
+  $.ajax({
+    type: 'POST',
+    url: 'articule_row.php',
+    data: {id:id},
+    dataType: 'json',
+    success: function(response){
+      $('.articleid').val(response.articleid);
+      $('#edit_title').val(response.title);
+      $('#catselect').val(response.category_id).html(response.name);
+      $('#edit_author').val(response.author);
+      $('#edit_publisher').val(response.publisher);
+      $('#datepicker_edit').val(response.publish_date);
+      $('#del_book').html(response.title);
+    }
+  });
 </script>
 </body>
 </html>

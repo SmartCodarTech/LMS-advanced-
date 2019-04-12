@@ -8,10 +8,26 @@
 		$course = $_POST['course'];
 		$role = $_POST['role'];
 
-		$filename = $_FILES['photo']['name'];
-		if(!empty($filename)){
-			move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$filename);	
-		}
+		
+                                $photo = $_FILES["photo"] ["name"];
+								$type = $_FILES["photo"] ["type"];
+								$size = $_FILES["photo"] ["size"];
+								$temp = $_FILES["photo"] ["tmp_name"];
+								$error = $_FILES["photo"] ["error"];
+										
+								if ($error > 0){
+									die("Error uploading file! Code $error.");
+								}
+								else
+								{
+									if($size > 30000000000) //conditions for the file
+									{
+										die("Format is not allowed or file size is too big!");
+									}
+									else
+									{
+										move_uploaded_file($temp,"../upload/".$photo);
+								
 		//creating studentid
 		$letters = '';
 		$numbers = '';
@@ -23,7 +39,9 @@
 		}
 		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		//
-		$sql = "INSERT INTO students (student_id, firstname, lastname,gender, course_id, role, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender', '$course','$role', '$filename', NOW())";
+		$sql = "INSERT INTO students (student_id, firstname, lastname,gender, course_id, role, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender', '$course','$role', '$photo', NOW())";
+
+	}}
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'User added successfully';
 		}
