@@ -54,10 +54,36 @@
 
                     <div class="col-sm-9">
                       <div class="date">
-                        <input type="date" class="form-control" id="date" name="publish_date">
+                        <input type="text" class="form-control" id="datepicker_add" name="publish_date">
                       </div>
                     </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="category" class="col-sm-3 control-label">Select Name</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" name="student_id" id="student_id" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM students";
+                          $query = $conn->query($sql);
+                          while($crow = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$crow['id']."'>".$crow['firstname']."".$crow['lastname']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
                 </div>
+                    <div class="form-group">
+                    <label for="publisher" class="col-sm-3 control-label">Add a Link</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="link" name="link">
+                    </div>
+                </div>
+              
                 <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Upload File</label>
 
@@ -86,8 +112,8 @@
             	<h4 class="modal-title"><b>Edit Book</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="book_edit.php">
-            		<input type="hidden" class="bookid" name="id">
+            	<form class="form-horizontal" method="POST" action="article_edit.php">
+            		<input type="hidden" class="articleid" name="id">
                 <div class="form-group">
                     <label for="edit_isbn" class="col-sm-3 control-label">ISBN</label>
 
@@ -163,8 +189,8 @@
             	<h4 class="modal-title"><b>Deleting...</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="book_delete.php">
-            		<input type="hidden" class="bookid" name="id">
+            	<form class="form-horizontal" method="POST" action="article_delete.php">
+            		<input type="hidden" class="articleid" name="id">
             		<div class="text-center">
 	                	<p>DELETE BOOK</p>
 	                	<h2 id="del_book" class="bold"></h2>
@@ -184,10 +210,10 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b><span class="del_stu"></span></b></h4>
+              <h4 class="modal-title"><b><span class="del_article"></span></b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="book_edit_photo.php" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="article_edit_photo.php" enctype="multipart/form-data">
                 <input type="hidden" class="studid" name="id">
                 <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>

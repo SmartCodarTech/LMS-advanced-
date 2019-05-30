@@ -40,6 +40,7 @@
 	        				<table class="table table-bordered table-striped" id="example1">
 			        			<thead>
 			        				<th class="hidden"></th>
+			        				<th>Book</th>
 			        				<th>Date</th>
 			        				<th>ISBN</th>
 			        				<th>Title</th>
@@ -50,8 +51,15 @@
 			        				$query = $conn->query($sql);
 			        				while($row = $query->fetch_assoc()){
 			        					$date = (isset($_GET['action'])) ? 'date_return' : 'date_borrow';
+			        					$photo = (!empty($row['image'])) ? './images/'.$row['image'] : '../images/profile.jpeg';
 			        					echo "
+
 			        						<tr>
+			        						
+                      
+                        <tr>
+                        <td>
+                                               <img src='".$photo."' width='40px' height='60px'></td>
 			        							<td class='hidden'></td>
 			        							<td>".date('M d, Y', strtotime($row[$date]))."</td>
 			        							<td>".$row['isbn']."</td>

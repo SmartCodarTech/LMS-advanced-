@@ -31,12 +31,18 @@
         <ul class="nav navbar-nav">
           <?php
             if(isset($_SESSION['student'])){
-              $photo = (!empty($student['photo'])) ? 'images/'.$student['photo'] : 'images/profile.jpg';
+              $image = (!empty($student['photo'])) ? './upload/'.$student['photo'] : './upload/profile.jpg';
               echo "
                 <li class='user user-menu'>
                   <a href='#'>
-                    <img src='".$photo."' class='user-image' alt='User Image'>
+                    <img src='".$image."' class='user-image' alt='User Image'>
                     <span class='hidden-xs'>".$student['firstname'].' '.$student['lastname']."</span>
+                  </a>
+                </li>
+                <li class='user user-menu'>
+                  <a href='#'>
+                    
+                    <span class='hidden-xs'>".$student['role']."</span>
                   </a>
                 </li>
                 <li><a href='logout.php'><i class='fa fa-sign-out'></i> LOGOUT</a></li>
@@ -44,6 +50,7 @@
             }
             else{
               echo "
+              <li><a href='./article_display.php' data-toggle='modal'><i class='fa fa-book'></i> Articles</a></li>
                 <li><a href='#login' data-toggle='modal'><i class='fa fa-sign-in'></i> LOGIN</a></li>
                 <li><a href='admin/index.php' data-toggle='modal'><i class='fa fa-key'></i> ADMIN LOGIN</a></li>
               ";

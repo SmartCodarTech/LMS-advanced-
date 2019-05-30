@@ -58,8 +58,13 @@ CREATE TABLE `article` (
   `student_id` int(11) NOT NULL,
   `author` varchar(150) NOT NULL,
   `publisher` varchar(150) NOT NULL,
+
   `publish_date` date NOT NULL,
   `upload_file` longtext NOT NULL
+   FOREIGN KEY fk_student(student_id)
+   REFERENCES students(student_id)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

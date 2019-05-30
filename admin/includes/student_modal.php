@@ -60,8 +60,8 @@
                     <div class="col-sm-9">
                       <select class="form-control" id="course" name="role" required>
                         <option value="" selected>- Select -</option>
-                        <option value="lecturer">Lecturer</option>
-                        <option value="student">Student</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="Student">Student</option>
                         
                       </select>
                     </div>

@@ -40,36 +40,24 @@
         <ul class="treeview-menu">
           <li><a href="book.php"><i class="fa fa-circle-o"></i> Book List</a></li>
           <li><a href="category.php"><i class="fa fa-circle-o"></i> Category</a></li>
+          <li><a href="article.php"><i class="fa fa-book"></i> Article</a></li>
         </ul>
       </li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-graduation-cap"></i>
-          <span>Students</span>
+          <span>Users</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="student.php"><i class="fa fa-circle-o"></i> Student List</a></li>
+          <li><a href="student.php"><i class="fa fa-circle-o"></i> Users List</a></li>
           <li><a href="course.php"><i class="fa fa-circle-o"></i> Course</a></li>
+
         </ul>
       </li>
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-graduation-cap"></i>
-          <span>Lecturers/HOD</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="lecturer.php"><i class="fa fa-circle-o"></i> Lecturers List</a></li>
-          <li><a href="specialization.php"><i class="fa fa-circle-o"></i> Programs</a></li>
-          <li><a href="department.php"><i class="fa fa-circle-o"></i>Department</a></li>
-        </ul>
-      </li>
-    </ul>
+      
   </section>
   <!-- /.sidebar -->
 </aside>
