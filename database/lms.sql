@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2019 at 08:01 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Jun 24, 2019 at 01:16 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'Administrator', '$2y$10$QINou0vDD1F/0RLX.es0uu330WL1FX9sgVjf2NFIUhkAANpEV683K', 'Elikem', 'Nanayaw', '38532457_151080585778355_2234909953577975808_n.jpg', '2018-05-03');
+(1, 'Administrator', '$2y$10$iEjCD7WYtsadZPssXLV4aua0EAYPVWl4g4dmZiegarwpcCnwYRvpq', 'Rodrick', 'Mahama', 'images.png', '2018-05-03');
 
 -- --------------------------------------------------------
 
@@ -53,16 +53,28 @@ INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `pho
 
 CREATE TABLE `article` (
   `id` int(11) NOT NULL,
-  `isbn` varchar(20) NOT NULL,
+  `title` text NOT NULL,
   `category_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `title` text NOT NULL,
   `author` varchar(150) NOT NULL,
   `publisher` varchar(150) NOT NULL,
   `publish_date` date NOT NULL,
-  `status` int(1) NOT NULL,
-  `image` longtext NOT NULL
+  `link` varchar(255) NOT NULL,
+  `upload_file` longtext NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `article`
+--
+
+INSERT INTO `article` (`id`, `title`, `category_id`, `student_id`, `author`, `publisher`, `publish_date`, `link`, `upload_file`, `status`) VALUES
+(1, 'Group man', 3, 0, 'Buthler Law Firm', 'TeamWork Publishers', '2019-04-08', 'https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin', 'PracticalLifecopy_thumb6.jpg', 0),
+(2, 'Group man', 6, 0, 'Buthler Law Firm', 'TeamWork Publishers', '2019-04-08', 'https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin', '320px-Color_Box_1.jpg', 0),
+(3, 'Group man', 5, 0, 'Buthler Law Firm', 'BookBoon Publishers', '2019-04-15', 'https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin', '8foldinglesson.jpg', 0),
+(4, 'Programming data', 2, 0, 'Elikem Nanayaw ', 'Dream Cap', '2019-05-27', 'my o my', 'user.jpg', 0),
+(5, 'Presidential', 6, 0, 'Elikem Nanayaw ', 'Great works ', '2019-05-22', 'Give me my book', 'download.jpg', 0),
+(6, 'Presidential', 1, 5, 'Wisdom Kukah', 'Dream Cap', '2019-05-14', 'KAIPTC', 'user.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -87,16 +99,17 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `isbn`, `category_id`, `title`, `author`, `publisher`, `publish_date`, `status`, `image`) VALUES
-(1, 'GN4536', 5, 'Advanced Java', 'Dr Akuffo Desmon', 'Deam Light Publishers', '2019-03-12', 0, ''),
-(2, 'SS342352', 1, 'Deam Books', 'Dr Akuffo Desmon', 'Deam Light Publishers', '2019-03-11', 0, '../upload/_1553599088.'),
-(3, 'DD3425', 3, 'Break And Loose', 'Dr Akuffo Desmon', 'Deam Light Publishers', '2019-03-05', 1, 'upload/_1553599259.'),
-(4, '9988-571-19-0', 6, 'Election 2016', 'Democracy And Pluralism', 'Friedrich Ebert Stifung Ghana', '2016-11-21', 1, ''),
-(5, '9988-571-19-11', 7, 'Bank of Ghana Currency', 'Wisdom Kukah', 'Bridge Publishers ', '2019-04-03', 0, ''),
-(6, 'DD3425', 5, 'Good deeds', 'Wisdom Kukah', 'Bridge Publishers', '2019-04-01', 0, ''),
-(7, '198-464-332-0', 9, 'Group book', 'Wisdom Kukah', 'Deam Light Publishers', '2019-04-16', 0, ''),
-(8, '01-1927', 6, 'Wisconsin Guide Book ', 'Wisdom Kukah', 'Bridge Publishers', '2019-04-08', 0, ''),
-(9, '23245677', 2, 'Good Day ', 'Wisdom Kukah', 'Bridge Publishers', '2019-04-30', 0, ''),
-(10, 'DD3425', 2, 'Titke', 'Wisdom Kukah', 'Bridge Publishers', '2019-04-01', 0, '');
+(17, '1927-1922-1933', 6, 'Big Dreamers', 'Wisdom Kukah', 'Team Publishers ', '2019-04-15', 0, 'download.jpg'),
+(18, '262-345-77-895-001', 7, 'Business Accounting 2', 'Mcgregor', 'TeamWork Publishers', '2019-04-07', 0, 'bbbb.jpg'),
+(19, '77-32-3435-0010-0101', 6, 'International Law', 'Buthler Law Firm', 'Bruther Law Firm', '2019-04-08', 1, 'il.jpg'),
+(20, '77-30-201-464-32', 7, 'Accounting 2', 'Wisdom Kukah', 'TeamWork Publishers', '2019-04-08', 1, 'abbbbs.jpg'),
+(21, '1927-453-459-00', 5, 'C++ Programming', 'MCDonald Steve', 'Step Publishers', '2019-04-10', 0, 'grwe.jpg'),
+(22, '27-19-2900-97-00', 5, 'Coders At Work', 'Havery Steve', 'Havcery Steve Publishers', '2019-04-16', 0, 'good.png'),
+(23, '450-111-234-345', 5, 'Java 3 OOP', 'Bookboon', 'BookBoon Publishers', '2019-04-02', 1, 'gsads.jpg'),
+(24, '111-101-342333-000', 5, '.NET Framework Programming', 'Microsoft ', 'Microsoft Company', '2019-04-17', 1, 'dddd.jpg'),
+(25, '119-111-000-1112', 2, 'Applied Mathematics', 'J.David Logan', 'Logan Publishers', '2019-04-17', 0, 'math8.jpg'),
+(26, '239-0000-111-222', 2, 'Bsc. Mathematics', 'S.Chand', 'BookBoon Publishers', '2019-04-08', 1, 'math6.jpg'),
+(27, '3453463763', 5, 'Good Manners in IT', 'Elikem Nanayaw ', 'Dream Cap', '2019-03-19', 0, 'user.jpg');
 
 -- --------------------------------------------------------
 
@@ -117,9 +130,12 @@ CREATE TABLE `borrow` (
 --
 
 INSERT INTO `borrow` (`id`, `student_id`, `book_id`, `date_borrow`, `status`) VALUES
-(1, 2, 7, '2019-04-05', 1),
-(2, 2, 4, '2019-04-05', 0),
-(3, 2, 3, '2019-04-05', 0);
+(1, 3, 18, '2019-04-15', 1),
+(2, 3, 19, '2019-04-15', 0),
+(3, 3, 20, '2019-04-15', 0),
+(4, 5, 23, '2019-04-15', 0),
+(5, 5, 24, '2019-04-15', 0),
+(6, 5, 26, '2019-04-15', 0);
 
 -- --------------------------------------------------------
 
@@ -280,7 +296,7 @@ CREATE TABLE `returns` (
 --
 
 INSERT INTO `returns` (`id`, `student_id`, `book_id`, `date_return`) VALUES
-(1, 2, 7, '2019-04-05');
+(0, 3, 18, '2019-04-17');
 
 -- --------------------------------------------------------
 
@@ -313,6 +329,7 @@ CREATE TABLE `students` (
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `gender` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `photo` varchar(200) NOT NULL,
   `course_id` int(11) NOT NULL,
   `role` varchar(255) NOT NULL,
@@ -323,10 +340,13 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `photo`, `course_id`, `role`, `created_on`) VALUES
-(0, 'PKY456891207', 'Farida', 'Ali', 'Female', '', 6, 'lecturer', '2019-04-07'),
-(1, 'MPW438617905', 'Wisdom', 'Kukah', 'Male', '38532457_151080585778355_2234909953577975808_n.jpg', 3, '', '2019-04-02'),
-(2, 'XUP205748316', 'Joseph ', 'Amarh', 'Male', 'se.jpg', 6, '', '2019-04-05');
+INSERT INTO `students` (`id`, `student_id`, `firstname`, `lastname`, `gender`, `password`, `photo`, `course_id`, `role`, `created_on`) VALUES
+(0, 'MOA974163258', 'Wisdom', 'Elikem', 'Male', '$2y$10$C9NyOgT1HVHuruayTTug5.6kgwSY7pI0dAUgAG5shZqEe6BqY7icq', 'gow.jpg', 3, 'Student', '2019-06-24'),
+(1, 'MPW438617905', 'Wisdom', 'Kukah', 'Male', '', '38532457_151080585778355_2234909953577975808_n.jpg', 3, '', '2019-04-02'),
+(2, 'UGY790341658', 'Felix ', 'Gogbe', 'Male', '', 'steve.jpg', 4, 'lecturer', '2019-04-15'),
+(3, 'NXP593870462', 'Eikem', 'Nanayaw', 'Male', '', 'user.jpg', 6, 'student', '2019-04-15'),
+(4, 'AMO049185276', 'Dr John', 'Mahama', 'Male', '', 'jm.jpg', 2, 'Lecturer', '2019-04-15'),
+(5, 'LRO587902136', 'Felicia', 'Ntim', 'Female', '', 'is.jpg', 2, 'Student', '2019-04-15');
 
 --
 -- Indexes for dumped tables
@@ -424,13 +444,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `borrow`
+--
+ALTER TABLE `borrow`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `notes`

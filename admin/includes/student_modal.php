@@ -66,6 +66,13 @@
                       </select>
                     </div>
                 </div>
+                 <div class="form-group">
+                    <label for="lastname" class="col-sm-3 control-label">Password</label>
+
+                    <div class="col-sm-9">
+                      <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>
 

@@ -69,7 +69,7 @@
                           $query = $conn->query($sql);
                           while($crow = $query->fetch_assoc()){
                             echo "
-                              <option value='".$crow['id']."'>".$crow['firstname']."".$crow['lastname']."</option>
+                              <option value='".$crow['id']."'>".$crow['firstname']."  ".$crow['lastname']."</option>
                             ";
                           }
                         ?>

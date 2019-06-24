@@ -5,6 +5,7 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$gender =$_POST['gender'];
+		$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$course = $_POST['course'];
 		$role = $_POST['role'];
 
@@ -39,7 +40,7 @@
 		}
 		$student_id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
 		//
-		$sql = "INSERT INTO students (student_id, firstname, lastname,gender, course_id, role, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender', '$course','$role', '$photo', NOW())";
+		$sql = "INSERT INTO students (student_id, firstname, lastname,gender,password, course_id, role, photo, created_on) VALUES ('$student_id', '$firstname', '$lastname','$gender','$password','$course','$role', '$photo', NOW())";
 
 	}}
 		if($conn->query($sql)){

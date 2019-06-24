@@ -52,18 +52,26 @@
 
 			        				<th>File</th>
 			        				<th>Title</th>
-			        				<th>Category</th>
+			        				
 			        				<th>Author</th>
 			        				<th>Publisher</th>
+			        				<th>Post By</th>
 			        				<th>Date</th>
+			        				<th>Status</th>
 			        				<th>Tools</th>
 			        			</thead>
 			        			<tbody>
 			        			<?php
-			        				 $sql = "SELECT *, article.id AS articleid FROM article LEFT JOIN category ON category.id=article.category_id $where";
+			        				 $sql = "SELECT *, article.id AS articleid FROM article LEFT JOIN students ON students.id=article.student_id $where";
 			        				$query = $conn->query($sql);
 			        				while($row = $query->fetch_assoc()){
-			        					//$status = ($row['status'] == 0) ? '<span class="label label-success">available</span>' : '<span class="label label-danger">not available</span>';
+			        					
+                                       if($row['status']==1){
+                                       $status = '<span class="label label-sucess">Approved</span>';
+                                       }
+                                    else{
+                                       $status = '<span class="label label-danger">Not Approved</span>';
+                                       }
 
 			        					$file = (!empty($row['upload_file'])) ? 'file/'.$row['upload_file'] : 'file/profile.jpeg';
                                          echo "
@@ -76,11 +84,15 @@
 
 			        							
 			        							<td>".$row['title']."</td>
-			        							<td>".$row['name']."</td>
+			        							
 			        							<td>".$row['author']."</td>
 			        							<td>".$row['publisher']."</td>
+			        							<td>".$row['firstname']."  ".$row['lastname']."</td>
 			        							<td>".$row['publish_date']."</td>
-			        							<td>
+			        							<td>".$status."</td>
+
+			        		<td>
+			        							
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['articleid']."'><i class='fa fa-edit'></i> </button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['articleid']."'><i class='fa fa-trash'></i> </button>
                           </td>
